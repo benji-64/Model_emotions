@@ -111,3 +111,7 @@ data/**
 !data/.gitkeep
 
 notebooks/cache/**
+# Cache Hugging Face (poids des modèles)
+cache/
+# Checkpoints des modèles entraînés
+notebooks/models/
