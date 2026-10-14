@@ -1,0 +1,41 @@
+PROMPT_ANNOTATION = """Le texte ci-dessous est la narration, par un usager, d'une expérience vécue avec une administration. Utilise uniquement ce texte. Attribue indépendamment un score entier de 0 à 3 à chacune des cinq dimensions suivantes.
+
+Satisfaction : appréciation positive d’une expérience dans laquelle l’usager peut avancer, atteindre son objectif ou surmonter une difficulté. Comprend le contentement, la joie, la gratitude, la confiance, l’apaisement et le soulagement. Une appréciation comme « tout s’est bien passé » suffit à en indiquer la présence ; un résultat favorable décrit sans appréciation ne suffit pas.
+
+Contestation : colère, indignation ou sentiment d’injustice face à un traitement jugé inacceptable et imputé à un acteur (administration, service, agent ou tiers impliqué). L’usager reproche, accuse, dénonce ou réclame une correction : il considère qu’une autre conduite était possible.
+- Présente : reproche ou jugement indigné adressé à un acteur (« c’est inadmissible », « on se moque de nous », « honteux »), question rhétorique qui dénonce (« Pourquoi une telle situation ? »), exigence de réparation.
+- Absente : description factuelle d’un dysfonctionnement (« le site affiche une erreur », « je n’ai pas eu de réponse ») ; recours ou réclamation décrits sans indignation ; déception sans reproche.
+Repères : « dommage que le service ne réponde pas » = 1 ; « c’est inadmissible d’attendre six mois » = 2 ; « c’est un scandale, on se fiche ouvertement des usagers ! » = 3.
+
+Désillusion : déception, découragement, lassitude ou affaiblissement de la confiance dans une résolution ou dans l’utilité des efforts engagés. Comprend le sentiment d’abandon, l’impuissance, la résignation et le renoncement.
+- Présente : déception ou découragement exprimés (« je suis déçu », « je n’y crois plus », « à quoi bon »), sentiment d’être abandonné (« on nous laisse tomber »).
+- Compte aussi les signes indirects : attente prolongée, relances répétées restées sans effet, démarches vaines ou réponses qui n’aboutissent à rien, lorsque l’usager les souligne (« toujours rien », « depuis des mois », « malgré mes relances », « personne ne répond »).
+- Absente : simple mention d’un délai sans insistance sur son caractère vain.
+- Distinction : la contestation vise l’acteur fautif (« ils auraient dû »), la désillusion vise l’issue (« ça n’aboutira jamais »). Les deux peuvent coexister.
+Repères : « toujours pas de réponse malgré deux relances » = 1 ; « cela fait huit mois que j’attends, je ne sais plus quoi faire » = 2 ; « j’abandonne, plus rien ne sert à rien » = 3.
+
+Détresse : inquiétude, anxiété ou angoisse face à une conséquence redoutée dont l’issue reste incertaine, pour l’usager ou pour ses proches.
+- Présente : crainte exprimée (« je suis inquiet », « j’ai peur de perdre mon logement »), angoisse, appel à l’aide pressant.
+- Compte aussi les situations où l’usager décrit une menace concrète sur sa situation (perte de revenus, de logement, de droits ou de titre de séjour, dette, santé, enfants) et en souligne la gravité, même sans mot d’émotion explicite.
+- Absente : simple gêne ou retard sans conséquence sérieuse évoquée ; impatience ou agacement face à l’attente.
+- Distinction : la détresse porte sur une menace encore ouverte ; la désillusion sur un espoir déjà perdu.
+Repères : « je n’ai plus de revenus depuis juillet » = 1 ; « je ne sais pas comment je vais payer mon loyer » = 2 ; « je risque l’expulsion, cette angoisse m’empêche de dormir » = 3.
+
+Perplexité : étonnement, surprise, confusion ou doute devant une situation inattendue ou difficile à interpréter. L’usager ne comprend pas ce qui se passe, ce qui est demandé ou comment poursuivre. La perplexité peut être positive, négative ou neutre.
+- Présente : incompréhension exprimée (« je ne comprends pas pourquoi on me demande ce document », « je ne sais pas quelle case cocher »), surprise devant un résultat inattendu.
+- Compte aussi l’impossibilité de mener la démarche à son terme lorsque l’usager ne sait pas comment s’en sortir : procédure bloquée, site qui ne permet pas d’avancer, informations contradictoires, renvoi d’un service à l’autre.
+- Absente : simple demande d’information ; question rhétorique purement accusatrice (relève de la contestation).
+Repères : « je n’arrive pas à valider le formulaire » = 1 ; « je ne comprends pas pourquoi mon dossier a été refusé » = 2 ; « je suis complètement perdu, chaque interlocuteur me dit le contraire » = 3.
+
+Applique ce barème à chaque dimension :
+0 = non exprimée : aucun indice textuel suffisant.
+1 = faible : expression légère ou atténuée.
+2 = modérée : expression nette, sans marque de forte intensité.
+3 = forte : expression très intense.
+Mesure l’intensité exprimée dans le texte, pas ta certitude.
+
+Plusieurs dimensions peuvent coexister, y compris satisfaction et émotions négatives. Tous les scores peuvent être nuls.
+Prends en compte toute l’expérience racontée, y compris les émotions passées. Pour chaque dimension, retiens l’intensité la plus élevée exprimée. Une résolution heureuse n’efface pas une inquiétude antérieure. Ne compte pas une émotion niée ou seulement hypothétique.
+Réponds uniquement avec un objet JSON valide contenant exactement les clés suivantes et des valeurs entières de 0 à 3 :
+{"satisfaction": 0, "contestation": 0, "desillusion": 0, "detresse": 0, "perplexite": 0}
+"""
